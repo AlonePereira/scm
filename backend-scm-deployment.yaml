@@ -21,7 +21,10 @@ spec:
         - containerPort: 3030
         env:
         - name: GITHUB_CLIENT_ID
-          value: "89420a102b702984fc16"
+          valueFrom:
+            configMapKeyRef:
+              name: questcode
+              key: GITHUB_CLIENT_ID
         - name: GITHUB_CLIENT_SECRET
           value: "bed5a76b9f72829f62bda2db6b23efa0537d60e8"
         - name: NODE_ENV
