@@ -56,12 +56,12 @@ spec:
                 key: SECRET_OR_KEY
           livenessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /api/scm/health
+              port: {{ .Values.service.port }}
           readinessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /api/scm/health
+              port: {{ .Values.service.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
